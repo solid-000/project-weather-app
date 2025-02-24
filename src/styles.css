@@ -1,8 +1,14 @@
+@font-face {
+    font-family: myfont;
+    src: url(./asset/font/HankenGrotesk.woff2) format("woff2");
+}
 *{
     box-sizing: border-box;
     /* outline: 1px solid red; */
-    --primary: #051531;
-    --secondary: #37414f;
+    --primary: #000000;
+    --secondary: #202b3b;
+    --font-primary: #f1eff1;
+    --font-secondary: #7d848d;
 }
 body{
     height: 100vh;
@@ -13,7 +19,8 @@ body{
     gap: 20px;
     padding: 15px;
     background-color: var(--primary);
-    color: wheat;
+    color: var(--font-primary);
+    font-family: myfont , 'Times New Roman', Times, serif;
 }
 
 body>*{
@@ -48,13 +55,15 @@ body>*:not(.today-hero){
 .today-temp{
     margin-top : auto;
 }
-
+.hero-logo{
+    height: 100%;
+}
 
 .today-forecast{
     grid-area: 3 / 2 / 4 / 3;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
 }
 .time-container{
     display: flex;
@@ -64,6 +73,22 @@ body>*:not(.today-hero){
 .time-card{
     flex: 1;
     text-align: center;
+    border-right: 1px solid var(--font-secondary);
+    padding: 0 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.time-card:last-child{
+    border-right: none;
+}
+.time{
+    color: var(--font-secondary);
+    font-weight: 600;
+}
+.time-temp{
+    font-size: 1.3rem;
+    font-weight: 650;
 }
 
 
@@ -71,7 +96,7 @@ body>*:not(.today-hero){
     grid-area: 4 / 2 / 5 / 3;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
 }
 .condition-container{
     flex: 1;
@@ -79,13 +104,16 @@ body>*:not(.today-hero){
     grid-template: 1fr 1fr / 1fr 1fr;
     gap: 10px;
 }
+.condition-title{
+    color: var(--font-secondary);
+}
 
 
 .week{
     grid-area: 2 / 3 / 5 / 4;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 30px;
 }
 .day-container{
     flex: 1;
@@ -98,4 +126,23 @@ body>*:not(.today-hero){
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+
+
+.title{
+    color: var(--font-secondary);
+    font-weight: 700;
+}
+.city{
+    font-size: 2.3rem;
+    font-weight: 800;
+}
+.hero-rain{
+    font-size: 1rem;
+    color: var(--font-secondary);
+}
+.today-temp{
+    font-size: 3.4rem;
+    font-weight: bold;
 }
