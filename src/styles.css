@@ -7,61 +7,30 @@ body{
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template: 6fr 2fr / 1fr;
-}
-.hero{
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-image: url(./asset/img/the-chaffins-syhIpeHdLdM-unsplash.jpg);
-    background-size: cover;
-}
-.weather{
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template: 1fr / 2fr 6fr;
-    padding: 20px 20px;
+    grid-template: 40px 1fr 1fr 1fr / 70px 2fr 1fr;
+    gap: 15px;
+    padding: 15px;
 }
 
-
-.info-today{
-    display: flex;
-}
-.info-today>* {
-    flex-basis: 50%;
-    display: flex;
-    flex-direction: column;
-}
-.temp-today, .status{
-    display: grid;
-    grid-template: 80% 20% / 1fr;
-}
-.temp-today div, .status div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body>*{
+    border-radius: 10px;
 }
 
-
-
-.info-week{
-    display: flex;
-    margin-left: 10%;
+.sidebar{
+    grid-area: 1 / 1 / 5 / 2;
 }
-.card{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    gap: 10px;
+.search{
+    grid-area: 1 / 2 / 2 / 4;
 }
-
-
-.glass{
-    background: linear-gradient(135deg, rgba(25,  25, 25, 0.1), rgba(25, 25, 55, 0));
-    backdrop-filter: blur(10px);
+.today-hero{
+    grid-area: 2 / 2 / 3 / 3;
+}
+.today-forecast{
+    grid-area: 3 / 2 / 4 / 3;
+}
+.today-condition{
+    grid-area: 4 / 2 / 5 / 3;
+}
+.week{
+    grid-area: 2 / 3 / 5 / 4;
 }
