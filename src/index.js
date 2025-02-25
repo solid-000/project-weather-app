@@ -34,4 +34,18 @@ async function getWeatherInfo(city) {
   );
   let data = await response.json();
   console.log(data);
+  populateDom(data);
+}
+
+async function populateDom(data) {
+  document.querySelector(".city").textContent = data.address;
+  document.querySelector(".today-temp").textContent =
+    `${data.currentConditions.temp}\u00B0`;
+  // document
+  //   .querySelector(".hero-logo")
+  //   .setAttribute(
+  //     "src",
+  //     `./asset/img/animated/${data.currentConditions.icon}.svg`
+  //   );
+  // console.log(document.querySelector(".hero-logo").getAttribute("src"));
 }
