@@ -1,7 +1,11 @@
+import image from "../asset/img/animated/clear-day.svg";
 async function populateDom(data) {
   document.querySelector(".city").textContent = data.address;
   document.querySelector(".today-temp").textContent =
     `${data.currentConditions.temp}\u00B0`;
+  document
+    .querySelector(".hero-logo")
+    .setAttribute("src", await importAnimated(data.currentConditions.icon));
 
   const timeCards = document.querySelectorAll(".time-card");
   let time = 6;
@@ -22,6 +26,15 @@ async function populateDom(data) {
 
   document.querySelector(".uv").querySelector(".value").textContent =
     `${data.currentConditions.uvindex}`;
+}
+
+async function importStatic(file) {
+  let icon = await import(`../asset/img/static/${file}.svg`);
+  return icon.default;
+}
+async function importAnimated(file) {
+  let icon = await import(`../asset/img/animated/${file}.svg`);
+  return icon.default;
 }
 
 export { populateDom };
