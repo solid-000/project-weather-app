@@ -7,6 +7,8 @@ function geoLocation() {
   });
 }
 
+let unit = "metric";
+
 async function fetchCity() {
   let position = await geoLocation();
   let response = await fetch(
@@ -22,7 +24,7 @@ async function fetchCity() {
 
 async function getWeatherInfo(city) {
   let response = await fetch(
-    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=us&key=ZSSFTJNCCFT6YGSSHS6WJEN4U&contentType=json`,
+    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=${unit}&key=ZSSFTJNCCFT6YGSSHS6WJEN4U&contentType=json`,
     { mode: "cors" }
   );
   let data = await response.json();
