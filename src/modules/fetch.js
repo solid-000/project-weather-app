@@ -23,11 +23,15 @@ async function fetchCity() {
 }
 
 async function getWeatherInfo(city) {
-  let response = await fetch(
-    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=${unit}&key=ZSSFTJNCCFT6YGSSHS6WJEN4U&contentType=json`,
-    { mode: "cors" }
-  );
-  let data = await response.json();
-  console.log(data); //console//
-  populateDom(data);
+  try {
+    let response = await fetch(
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=${unit}&key=ZSSFTJNCCFT6YGSSHS6WJEN4U&contentType=json`,
+      { mode: "cors" }
+    );
+    let data = await response.json();
+    console.log(data); //console//
+    populateDom(data);
+  } catch (error) {
+    console.log(error);
+  }
 }
