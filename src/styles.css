@@ -16,7 +16,7 @@ body{
     margin: 0;
     padding: 0;
     display: grid;
-    grid-template: 60px 1fr 1fr 1fr / 2.2fr 1fr;
+    grid-template: 50px 1fr 1fr 1fr / 2.2fr 1fr;
     gap: 20px;
     padding: 15px;
     background-color: var(--primary);
@@ -25,18 +25,72 @@ body{
 }
 
 body>*{
-    border-radius: 10px;
-    padding: 30px 30px;
+    border-radius: 15px;
+    padding: 30px;
 }
-body>*:not(.today-hero){
+body>*:not(.today-hero, .search){
     background-color: var(--secondary);
     box-shadow: 0px 0px 3px #18263a;
 }
 
 .search{
-    grid-area: 1 / 1 / 2 / 3;
+    grid-area: 1 / 1 / 2 / 2;
     padding: 0;
+    display: flex;
+    position: relative;
 }
+.search>input{
+    z-index: 1;
+    height: 100%;
+    width: calc(100% - 50px);
+    background-color: var(--secondary);
+    border: none;
+    border-radius: 15px 0 0 15px;
+    padding: 5px 15px;
+    font-size: 17px;
+    color: var(--font-primary);
+    transition: width 1s, border-radius 1s;
+}
+.search>input:placeholder-shown{
+    width: 100%;
+    border-radius: 15px;
+    transition: width 1s, border-radius 1s;
+}
+.search>input:focus{
+    outline: none;
+}
+.search>input::placeholder{
+    color:  #d6d6d6;
+}
+.search>input:focus::placeholder{
+    color: var(--font-secondary);
+}
+
+.search>button{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 50px;
+    border-radius: 0 15px 15px 0;
+    z-index: 0;
+    background-color: var(--border);
+    border: none;
+    cursor: pointer;
+    transition: right 1s;
+    padding: 10px;
+}
+.search>input:placeholder-shown + button {
+    right: 50px;
+    transition: right 1s;
+    pointer-events: none;
+}
+.search>button:hover{
+    border: 1px solid var(--primary);
+}
+.search>button:active{
+    border: 2px solid var(--primary);
+}
+
 
 
 .today-hero{
