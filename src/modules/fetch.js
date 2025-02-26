@@ -1,4 +1,4 @@
-import { populateDom } from "..";
+import { populateDom } from "./dom";
 export { fetchCity, getWeatherInfo };
 
 function geoLocation() {
