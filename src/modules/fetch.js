@@ -29,7 +29,6 @@ async function getWeatherInfo(city) {
       { mode: "cors" }
     );
     let data = await response.json();
-    console.log(data); //console//
     populateDom(data);
     document.querySelector(".search input").value = "";
   } catch (error) {

@@ -28,7 +28,7 @@ body>*{
     border-radius: 15px;
     padding: 30px;
 }
-body>*:not(.today-hero, .search){
+body>*:not(.today-hero, .search, .controls){
     background-color: var(--secondary);
     box-shadow: 0px 0px 3px #18263a;
 }
@@ -248,4 +248,30 @@ body>*:not(.today-hero, .search){
 .today-temp{
     font-size: 3.4rem;
     font-weight: bold;
+}
+
+.controls{
+    grid-area: 1 / 2 / 2 / 3;
+    padding: 0;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+}
+.control{
+    width: 60px;
+    height: 100%;
+    color: var(--font-primary);
+    background-color: var(--border);
+    border-radius: 10px;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.control:hover{
+    border: 0.5px solid var(--font-secondary);
+}
+.control:active{
+    border: 2px solid var(--font-secondary);
 }
