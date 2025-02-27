@@ -5,8 +5,8 @@ import cities from "cities.json";
 
 const dataList = document.querySelector("#cities");
 
-updateDatalist();
 window.onload = fetchCity();
+updateDatalist();
 
 let search = document.querySelector(".search input");
 

@@ -32,6 +32,6 @@ async function getWeatherInfo(city) {
     populateDom(data);
     document.querySelector(".search input").value = "";
   } catch (error) {
-    console.log(error);
+    alert("Invalid city name");
   }
 }

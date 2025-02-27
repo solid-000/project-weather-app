@@ -1,7 +1,7 @@
 async function populateDom(data) {
   document.querySelector(".city").textContent = data.resolvedAddress;
   document.querySelector(".today-temp").textContent =
-    `${data.currentConditions.temp}\u00B0`;
+    `${data.currentConditions.temp}\u00B0C`;
   document
     .querySelector(".hero-logo")
     .setAttribute("src", await importAnimated(data.currentConditions.icon));
