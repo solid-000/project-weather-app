@@ -4,6 +4,8 @@ export { fetchCity, getWeatherInfo };
 function geoLocation() {
   return new Promise((resolve, reject) => {
     navigator.geolocation.getCurrentPosition(resolve, reject);
+  }).catch((error) => {
+    document.querySelector(".error").classList.remove("hidden");
   });
 }
 
@@ -11,9 +13,6 @@ let unit = "metric";
 
 async function fetchCity() {
   let position = await geoLocation();
-  geoLocation().catch((err) => {
-    console.log(err);
-  });
   let response = await fetch(
     `https://nominatim.openstreetmap.org/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`
   );
@@ -34,6 +33,7 @@ async function getWeatherInfo(city) {
     let data = await response.json();
     populateDom(data);
     document.querySelector(".search input").value = "";
+    document.querySelector(".error").classList.add("hidden");
   } catch (error) {
     alert("Invalid city name");
   }
