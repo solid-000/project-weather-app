@@ -184,6 +184,7 @@ body>*:not(.today-hero, .search){
     flex-direction: column;
     gap: 30px;
 }
+
 .day-container{
     flex: 1;
     display: flex;
@@ -194,21 +195,42 @@ body>*:not(.today-hero, .search){
     flex: 1;
     display: grid;
     grid-template: 1fr / 1fr 2fr 1fr;
+    gap: 30px;
+    border-bottom: 1px solid var(--border);
 }
-.day{
-    width: 8ch;
+.day-card:last-child{
+    border-bottom: none;
 }
 .status{
     display: flex;
     justify-content: flex-start;
     align-items: center;
     width: auto;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 0.95rem;
 }
 .status>img{
     height: 60px;
-    display: inline;
 }
-
+.day{
+    padding-left: 10%;
+}
+.day, .day-temp{
+    display: flex;
+    align-items: center;
+    color: var(--font-secondary);
+}
+.day-temp>span:first-child{
+    width: 49%;
+    text-align: right;
+    color: var(--font-primary);
+    font-weight: 650;
+}
+.day-temp>span:last-child{
+    width: 49%;
+    font-size: 0.9rem;
+}
 
 
 .title{
@@ -219,7 +241,7 @@ body>*:not(.today-hero, .search){
     font-size: 2rem;
     font-weight: 800;
 }
-.hero-rain{
+.hero-info{
     font-size: 1rem;
     color: var(--font-secondary);
 }

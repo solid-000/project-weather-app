@@ -1,4 +1,3 @@
-import image from "../asset/img/animated/clear-day.svg";
 async function populateDom(data) {
   document.querySelector(".city").textContent = data.resolvedAddress;
   document.querySelector(".today-temp").textContent =
@@ -6,6 +5,8 @@ async function populateDom(data) {
   document
     .querySelector(".hero-logo")
     .setAttribute("src", await importAnimated(data.currentConditions.icon));
+  document.querySelector(".hero-info").textContent =
+    `${data.currentConditions.conditions}`;
 
   const timeCards = document.querySelectorAll(".time-card");
   let time = 6;
@@ -31,15 +32,23 @@ async function populateDom(data) {
     `${data.currentConditions.uvindex}`;
 
   const dayCards = document.querySelectorAll(".day-card");
-  for (let i = 0; i < 6; i++) {
-    dayCards[i].querySelector(".day").textContent = day(
-      data.days[i + 1].datetime
-    );
+  for (let i = 0; i < 7; i++) {
+    if (i === 0) {
+      dayCards[i].querySelector(".day").textContent = "Today";
+    } else {
+      dayCards[i].querySelector(".day").textContent = day(
+        data.days[i].datetime
+      );
+    }
     dayCards[i]
       .querySelector(".status img")
-      .setAttribute("src", await importStatic(data.days[i + 1].icon));
+      .setAttribute("src", await importStatic(data.days[i].icon));
     dayCards[i].querySelector(".status span").textContent =
-      data.days[i + 1].conditions;
+      data.days[i].conditions;
+    dayCards[i].querySelector(".day-temp span:first-child").textContent =
+      `${Math.round(data.days[i].tempmax)}`;
+    dayCards[i].querySelector(".day-temp span:last-child").textContent =
+      `${Math.round(data.days[i].tempmin)}`;
   }
 }
 
@@ -56,25 +65,25 @@ function day(date) {
   let day;
   switch (dayInt) {
     case 0:
-      day = "Sunday";
+      day = "Sun";
       break;
     case 1:
-      day = "Monday";
+      day = "Mon";
       break;
     case 2:
-      day = "Tuesday";
+      day = "Tue";
       break;
     case 3:
-      day = "Wednesday";
+      day = "Wed";
       break;
     case 4:
-      day = "Thursday";
+      day = "Thu";
       break;
     case 5:
-      day = "Friday";
+      day = "Fri";
       break;
     case 6:
-      day = "Saturday";
+      day = "Sat";
       break;
   }
   return day;

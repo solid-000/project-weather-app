@@ -31,6 +31,7 @@ async function getWeatherInfo(city) {
     let data = await response.json();
     console.log(data); //console//
     populateDom(data);
+    document.querySelector(".search input").value = "";
   } catch (error) {
     console.log(error);
   }
