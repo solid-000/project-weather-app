@@ -11,6 +11,9 @@ let unit = "metric";
 
 async function fetchCity() {
   let position = await geoLocation();
+  geoLocation().catch((err) => {
+    console.log(err);
+  });
   let response = await fetch(
     `https://nominatim.openstreetmap.org/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&format=json`
   );
